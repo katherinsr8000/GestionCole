@@ -13,6 +13,7 @@ namespace CrudApi.Models
 		public string direccion { get; set; }
 		public int Telefono { get; set; }
 
+
 	}
 	public class Add_Asignatura
 	{
