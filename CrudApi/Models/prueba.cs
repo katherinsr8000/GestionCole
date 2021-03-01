@@ -71,5 +71,27 @@ namespace CrudApi.Models
 		public string Nombre { get; set; }
 
 	}
-}
 
+	public class Add_NotasAlumno
+    {
+		public decimal Calificacion_final { get; set; }
+		public int idasignatura { get; set; }
+		public int IdAlumno { get; set; }
+
+	}
+	public class Get_ReporteNotas
+    {
+
+		public int AnoAcademico { get; set; }
+		public string NumeroIdentificacion { get; set; }
+		public string NombreAlumno { get; set; }
+		public int CodigoMateria { get; set; }
+		public string NombreMateria { get; set; }
+		public string Identificacionprofesor { get; set; }
+		public string NombreProfesor { get; set; }
+		public string Calificacion_final { get; set; }
+		public string Aprobo { get; set; }
+
+	}
+
+}

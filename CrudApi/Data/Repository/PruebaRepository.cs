@@ -285,6 +285,52 @@ namespace CrudApi.Data.Repository
             }
 
         }
+        public bool Add_NotasAlumno(Add_NotasAlumno n)
+        {
+
+            IDbCommand dbTransation;
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@Calificacion_final", n.Calificacion_final);
+            parameters.Add("@idasignatura", n.idasignatura);
+            parameters.Add("@IdAlumno", n.IdAlumno);
+
+            using (IDbConnection db = GetConnection())
+            {
+                db.Open();
+
+                try
+                {
+                    db.ExecuteScalar("colegio.Add_NotasAlumno",
+                        commandType: CommandType.StoredProcedure,
+                        param: parameters);
+                    db.Close();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    db.Close();
+                    return false;
+                    throw e;
+                }
+            }
+        }
+        public async Task<IEnumerable<Get_ReporteNotas>> Get_ReporteNotas()
+        {
+            try
+            {
+                using (IDbConnection db = GetConnection())
+                {
+                    return await db.QueryAsync<Get_ReporteNotas>("colegio.Get_ReporteNotas", commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+        }
+
         //public bool DelClientes(string Identificacion)
         //{
         //    try

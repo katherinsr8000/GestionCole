@@ -185,6 +185,35 @@ namespace CrudApi.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("AddNota")]
+        public IActionResult Add_NotasAlumno([FromBody] Add_NotasAlumno n)
+        {
+            try
+            {
+                return Ok(al.Add_NotasAlumno(n));
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+        [HttpGet]
+        [Route("GetReporte")]
+        public async Task<IActionResult> GetReporte()
+        {
+            try
+            {
+                return Ok(await al.Get_ReporteNotas());
+            }
+
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+
 
         //[HttpDelete ("[action]")]
         //public IActionResult ElimnarCliente (string Identificacion)

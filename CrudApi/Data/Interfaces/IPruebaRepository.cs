@@ -19,5 +19,7 @@ namespace CrudApi.Data.Interfaces
         Task<IEnumerable<lst_Asignatura>> lstAsignatura();
         Task<IEnumerable<Get_Profesor>> GetProfesor();
         Task<IEnumerable<Get_Alumno>> GetAlumno();
+        bool Add_NotasAlumno(Add_NotasAlumno n);
+        Task<IEnumerable<Get_ReporteNotas>> Get_ReporteNotas();
     }
 }
